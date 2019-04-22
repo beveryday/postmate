@@ -291,12 +291,17 @@ function () {
         container = _ref2$container === void 0 ? typeof container !== 'undefined' ? container : document.body : _ref2$container,
         model = _ref2.model,
         url = _ref2.url,
-        _ref2$classListArray = _ref2.classListArray,
-        classListArray = _ref2$classListArray === void 0 ? [] : _ref2$classListArray;
+        id = _ref2.id,
+        styles = _ref2.styles;
     // eslint-disable-line no-undef
     this.parent = window;
     this.frame = document.createElement('iframe');
-    this.frame.classList.add.apply(this.frame.classList, classListArray);
+    this.frame.setAttribute('id', id);
+    this.frame.setAttribute('name', id);
+    this.frame.setAttribute('scrolling', 'no');
+    this.frame.setAttribute('frameborder', '0');
+    this.frame.frameBorder = '0';
+    Object.assign(this.frame.style, styles);
     container.appendChild(this.frame);
     this.child = this.frame.contentWindow || this.frame.contentDocument.parentWindow;
     this.model = model || {};
